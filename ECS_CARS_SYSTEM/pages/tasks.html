@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Китайские Электромобили | Задачи</title>
+    <link rel="stylesheet" href="/site/assets/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <i class="fas fa-bolt"></i>
+                <span>Китайские Электромобили</span>
+            </div>
+            <nav class="nav">
+                <a href="/site/index.html" class="nav-link">Главная</a>
+                <a href="/site/pages/cars.html" class="nav-link">Автомобили</a>
+                <a href="/site/pages/tasks.html" class="nav-link">Задачи</a>
+                <a href="/site/pages/about.html" class="nav-link">О проекте</a>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-primary" id="ai-assistant-btn">
+                    <i class="fas fa-robot"></i> ИИ-Ассистент
+                </button>
+                <button class="btn btn-secondary mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="section">
+        <h1 class="section-title">Задачи проекта</h1>
+        <p class="text-center mb-lg">Управляйте задачами, связанными с изучением и разработкой китайских электромобилей.</p>
+    </section>
+
+    <!-- Task Actions -->
+    <section class="section">
+        <div class="section-header">
+            <h2>Действия</h2>
+            <button class="btn btn-primary" id="add-task-btn">
+                <i class="fas fa-plus"></i> Добавить задачу
+            </button>
+        </div>
+    </section>
+
+    <!-- Kanban Board -->
+    <section class="section">
+        <div class="tasks-container">
+            <div class="task-column">
+                <div class="task-column-header">
+                    <h3 class="task-column-title">К выполнению</h3>
+                    <span class="task-count">0</span>
+                </div>
+                <div class="task-list" id="todo-list">
+                    <div class="task-card" draggable="true" data-priority="high">
+                        <h4 class="task-card-title">Добавить новую модель BYD</h4>
+                        <p class="task-card-description">Изучить характеристики и добавить в каталог новую модель BYD Seal 2025.</p>
+                        <div class="task-card-meta">
+                            <span class="task-card-priority task-priority-high">Высокий</span>
+                            <span class="task-card-date">15.10.2024</span>
+                        </div>
+                        <div class="task-card-actions">
+                            <button class="btn btn-sm btn-secondary" onclick="editTask(this)">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-sm btn-accent" onclick="moveTask(this, 'in-progress')">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="task-card" draggable="true" data-priority="medium">
+                        <h4 class="task-card-title">Обновить цены на запчасти</h4>
+                        <p class="task-card-description">Актуализировать информацию о ценах на запчасти для всех моделей.</p>
+                        <div class="task-card-meta">
+                            <span class="task-card-priority task-priority-medium">Средний</span>
+                            <span class="task-card-date">18.10.2024</span>
+                        </div>
+                        <div class="task-card-actions">
+                            <button class="btn btn-sm btn-secondary" onclick="editTask(this)">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-sm btn-accent" onclick="moveTask(this, 'in-progress')">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="task-card" draggable="true" data-priority="low">
+                        <h4 class="task-card-title">Написать статью про NIO ET7</h4>
+                        <p class="task-card-description">Подготовить обзорную статью о новых возможностях NIO ET7 2024 года.</p>
+                        <div class="task-card-meta">
+                            <span class="task-card-priority task-priority-low">Низкий</span>
+                            <span class="task-card-date">20.10.2024</span>
+                        </div>
+                        <div class="task-card-actions">
+                            <button class="btn btn-sm btn-secondary" onclick="editTask(this)">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-sm btn-accent" onclick="moveTask(this, 'in-progress')">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="task-column">
+                <div class="task-column-header">
+                    <h3 class="task-column-title">В процессе</h3>
+                    <span class="task-count">0</span>
+                </div>
+                <div class="task-list" id="in-progress-list">
+                    <div class="task-card" draggable="true" data-priority="high">
+                        <h4 class="task-card-title">Исследовать технологию Blade Battery</h4>
+                        <p class="task-card-description">Провести анализ технологии Blade Battery от BYD и подготовить отчёт.</p>
+                        <div class="task-card-meta">
+                            <span class="task-card-priority task-priority-high">Высокий</span>
+                            <span class="task-card-date">12.10.2024</span>
+                        </div>
+                        <div class="task-card-actions">
+                            <button class="btn btn-sm btn-secondary" onclick="editTask(this)">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-sm btn-accent" onclick="moveTask(this, 'done')">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="task-card" draggable="true" data-priority="medium">
+                        <h4 class="task-card-title">Создать сравнительную таблицу</h4>
+                        <p class="task-card-description">Сравнить технические характеристики BYD Seal и NIO ET7.</p>
+                        <div class="task-card-meta">
+                            <span class="task-card-priority task-priority-medium">Средний</span>
+                            <span class="task-card-date">14.10.2024</span>
+                        </div>
+                        <div class="task-card-actions">
+                            <button class="btn btn-sm btn-secondary" onclick="editTask(this)">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-sm btn-accent" onclick="moveTask(this, 'done')">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="task-column">
+                <div class="task-column-header">
+                    <h3 class="task-column-title">Выполнено</h3>
+                    <span class="task-count">0</span>
+                </div>
+                <div class="task-list" id="done-list">
+                    <div class="task-card" draggable="true" data-priority="medium">
+                        <h4 class="task-card-title">Создать логотип проекта</h4>
+                        <p class="task-card-description">Разработать логотип для сайта о китайских электромобилях.</p>
+                        <div class="task-card-meta">
+                            <span class="task-card-priority task-priority-medium">Средний</span>
+                            <span class="task-card-date">10.10.2024</span>
+                        </div>
+                        <div class="task-card-actions">
+                            <button class="btn btn-sm btn-secondary" onclick="editTask(this)">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="task-card" draggable="true" data-priority="low">
+                        <h4 class="task-card-title">Настроить Google Drive API</h4>
+                        <p class="task-card-description">Интегрировать Google Drive API для хранения данных сайта.</p>
+                        <div class="task-card-meta">
+                            <span class="task-card-priority task-priority-low">Низкий</span>
+                            <span class="task-card-date">08.10.2024</span>
+                        </div>
+                        <div class="task-card-actions">
+                            <button class="btn btn-sm btn-secondary" onclick="editTask(this)">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Task Modal -->
+    <div id="task-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="task-modal-title">Добавить задачу</h2>
+                <span class="close-modal" onclick="closeTaskModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="task-form">
+                    <input type="hidden" id="task-id">
+                    <div class="form-group">
+                        <label for="task-title">Название задачи</label>
+                        <input type="text" id="task-title" class="form-control" placeholder="Введите название задачи" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="task-description">Описание</label>
+                        <textarea id="task-description" class="form-control" rows="3" placeholder="Опишите задачу..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="task-priority">Приоритет</label>
+                        <select id="task-priority" class="form-control">
+                            <option value="low">Низкий</option>
+                            <option value="medium" selected>Средний</option>
+                            <option value="high">Высокий</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="task-date">Дедлайн</label>
+                        <input type="date" id="task-date" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="task-status">Статус</label>
+                        <select id="task-status" class="form-control">
+                            <option value="todo">К выполнению</option>
+                            <option value="in-progress">В процессе</option>
+                            <option value="done">Выполнено</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer" style="padding: var(--space-lg); border-top: 1px solid var(--gray);">
+                <button type="button" class="btn btn-secondary" onclick="closeTaskModal()">Отмена</button>
+                <button type="button" class="btn btn-primary" onclick="saveTask()">Сохранить</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>О проекте</h3>
+                <p>Сайт посвящён китайским электромобилям, их особенностям, запчастям и методам решения программных вопросов.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Быстрые ссылки</h3>
+                <ul>
+                    <li><a href="/site/index.html">Главная</a></li>
+                    <li><a href="/site/pages/cars.html">Автомобили</a></li>
+                    <li><a href="/site/pages/tasks.html">Задачи</a></li>
+                    <li><a href="/site/pages/about.html">О проекте</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Контакты</h3>
+                <p><i class="fas fa-envelope"></i> info@ev-china.ru</p>
+                <p><i class="fas fa-phone"></i> +7 (123) 456-78-90</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 | Китайские Электромобили. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <!-- AI Assistant Modal -->
+    <div id="ai-assistant-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-robot"></i> ИИ-Ассистент</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div id="chat-container" class="chat-container"></div>
+            <div class="chat-input">
+                <input type="text" id="user-input" placeholder="Задайте вопрос о китайских электромобилях...">
+                <button id="send-btn" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="/site/assets/js/app.js"></script>
+    <script src="/site/assets/js/ai-assistant.js"></script>
+    <script>
+        // Task management
+        let currentTaskId = null;
+
+        // Add task button
+        document.getElementById('add-task-btn').addEventListener('click', function() {
+            currentTaskId = null;
+            document.getElementById('task-modal-title').textContent = 'Добавить задачу';
+            document.getElementById('task-form').reset();
+            document.getElementById('task-modal').classList.add('active');
+        });
+
+        // Close modal
+        function closeTaskModal() {
+            document.getElementById('task-modal').classList.remove('active');
+        }
+
+        // Save task
+        function saveTask() {
+            const title = document.getElementById('task-title').value;
+            const description = document.getElementById('task-description').value;
+            const priority = document.getElementById('task-priority').value;
+            const date = document.getElementById('task-date').value;
+            const status = document.getElementById('task-status').value;
+
+            if (!title) {
+                alert('Пожалуйста, введите название задачи');
+                return;
+            }
+
+            const task = {
+                id: currentTaskId || Date.now().toString(),
+                title: title,
+                description: description,
+                priority: priority,
+                date: date || new Date().toISOString().split('T')[0],
+                status: status
+            };
+
+            // Save to localStorage (will be replaced with Google Drive later)
+            let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+            if (currentTaskId) {
+                const index = tasks.findIndex(t => t.id === currentTaskId);
+                if (index !== -1) {
+                    tasks[index] = task;
+                }
+            } else {
+                tasks.push(task);
+            }
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+
+            // Refresh task lists
+            loadTasks();
+            closeTaskModal();
+        }
+
+        // Load tasks
+        function loadTasks() {
+            const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+            
+            // Clear existing tasks
+            document.getElementById('todo-list').innerHTML = '';
+            document.getElementById('in-progress-list').innerHTML = '';
+            document.getElementById('done-list').innerHTML = '';
+
+            // Sort tasks by date
+            tasks.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+            // Add tasks to appropriate columns
+            tasks.forEach(task => {
+                const taskElement = createTaskElement(task);
+                const listId = `${task.status}-list`;
+                document.getElementById(listId).appendChild(taskElement);
+            });
+
+            // Update counts
+            updateTaskCounts();
+        }
+
+        // Create task element
+        function createTaskElement(task) {
+            const taskElement = document.createElement('div');
+            taskElement.className = 'task-card';
+            taskElement.draggable = true;
+            taskElement.dataset.priority = task.priority;
+            taskElement.dataset.id = task.id;
+
+            const priorityClass = `task-priority-${task.priority}`;
+            const priorityText = {
+                'low': 'Низкий',
+                'medium': 'Средний',
+                'high': 'Высокий'
+            }[task.priority];
+
+            taskElement.innerHTML = `
+                <h4 class="task-card-title">${task.title}</h4>
+                ${task.description ? `<p class="task-card-description">${task.description}</p>` : ''}
+                <div class="task-card-meta">
+                    <span class="task-card-priority ${priorityClass}">${priorityText}</span>
+                    <span class="task-card-date">${formatDate(task.date)}</span>
+                </div>
+                <div class="task-card-actions">
+                    <button class="btn btn-sm btn-secondary" onclick="editTask(this)">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="btn btn-sm btn-accent" onclick="moveTask(this, '${getNextStatus(task.status)}')">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            `;
+
+            return taskElement;
+        }
+
+        // Format date
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('ru-RU');
+        }
+
+        // Get next status
+        function getNextStatus(currentStatus) {
+            const statuses = ['todo', 'in-progress', 'done'];
+            const currentIndex = statuses.indexOf(currentStatus);
+            return currentIndex < statuses.length - 1 ? statuses[currentIndex + 1] : currentStatus;
+        }
+
+        // Edit task
+        function editTask(button) {
+            const taskCard = button.closest('.task-card');
+            const taskId = taskCard.dataset.id;
+            const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+            const task = tasks.find(t => t.id === taskId);
+
+            if (!task) return;
+
+            currentTaskId = task.id;
+            document.getElementById('task-modal-title').textContent = 'Редактировать задачу';
+            document.getElementById('task-id').value = task.id;
+            document.getElementById('task-title').value = task.title;
+            document.getElementById('task-description').value = task.description || '';
+            document.getElementById('task-priority').value = task.priority;
+            document.getElementById('task-date').value = task.date;
+            document.getElementById('task-status').value = task.status;
+
+            document.getElementById('task-modal').classList.add('active');
+        }
+
+        // Move task
+        function moveTask(button, newStatus) {
+            const taskCard = button.closest('.task-card');
+            const taskId = taskCard.dataset.id;
+            const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+            const taskIndex = tasks.findIndex(t => t.id === taskId);
+
+            if (taskIndex !== -1) {
+                tasks[taskIndex].status = newStatus;
+                localStorage.setItem('tasks', JSON.stringify(tasks));
+                loadTasks();
+            }
+        }
+
+        // Update task counts
+        function updateTaskCounts() {
+            const todoCount = document.getElementById('todo-list').children.length;
+            const inProgressCount = document.getElementById('in-progress-list').children.length;
+            const doneCount = document.getElementById('done-list').children.length;
+
+            document.querySelectorAll('.task-column-header .task-count')[0].textContent = todoCount;
+            document.querySelectorAll('.task-column-header .task-count')[1].textContent = inProgressCount;
+            document.querySelectorAll('.task-column-header .task-count')[2].textContent = doneCount;
+        }
+
+        // Drag and drop functionality
+        let draggedTask = null;
+
+        document.querySelectorAll('.task-card').forEach(card => {
+            card.addEventListener('dragstart', function(e) {
+                draggedTask = this;
+                e.dataTransfer.setData('text/plain', this.dataset.id);
+                this.style.opacity = '0.5';
+            });
+
+            card.addEventListener('dragend', function() {
+                this.style.opacity = '1';
+                draggedTask = null;
+            });
+        });
+
+        document.querySelectorAll('.task-list').forEach(list => {
+            list.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                this.style.backgroundColor = 'rgba(30, 58, 138, 0.1)';
+            });
+
+            list.addEventListener('dragleave', function() {
+                this.style.backgroundColor = '';
+            });
+
+            list.addEventListener('drop', function(e) {
+                e.preventDefault();
+                this.style.backgroundColor = '';
+
+                if (draggedTask) {
+                    const taskId = e.dataTransfer.getData('text/plain');
+                    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+                    const taskIndex = tasks.findIndex(t => t.id === taskId);
+
+                    if (taskIndex !== -1) {
+                        const statusMap = {
+                            'todo-list': 'todo',
+                            'in-progress-list': 'in-progress',
+                            'done-list': 'done'
+                        };
+                        tasks[taskIndex].status = statusMap[this.id];
+                        localStorage.setItem('tasks', JSON.stringify(tasks));
+                        loadTasks();
+                    }
+                }
+            });
+        });
+
+        // Initialize
+        loadTasks();
+
+        // Close modal when clicking outside
+        document.getElementById('task-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeTaskModal();
+            }
+        });
+    </script>
+</body>
+</html>

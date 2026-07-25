@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Китайские Электромобили | Автомобили</title>
+    <link rel="stylesheet" href="/site/assets/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <i class="fas fa-bolt"></i>
+                <span>Китайские Электромобили</span>
+            </div>
+            <nav class="nav">
+                <a href="/site/index.html" class="nav-link">Главная</a>
+                <a href="/site/pages/cars.html" class="nav-link">Автомобили</a>
+                <a href="/site/pages/tasks.html" class="nav-link">Задачи</a>
+                <a href="/site/pages/about.html" class="nav-link">О проекте</a>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-primary" id="ai-assistant-btn">
+                    <i class="fas fa-robot"></i> ИИ-Ассистент
+                </button>
+                <button class="btn btn-secondary mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="section">
+        <h1 class="section-title">Каталог китайских электромобилей</h1>
+        <p class="text-center mb-lg">Здесь вы найдёте подробную информацию о популярных моделях китайских электромобилей, их характеристиках и особенностях.</p>
+    </section>
+
+    <!-- Filters Section -->
+    <section class="section">
+        <div class="section-header">
+            <h2>Фильтры</h2>
+            <button class="btn btn-secondary" id="reset-filters">
+                <i class="fas fa-redo"></i> Сбросить
+            </button>
+        </div>
+        <div class="cars-filters">
+            <div class="filter-group">
+                <label for="brand-filter">Бренд</label>
+                <select id="brand-filter">
+                    <option value="">Все бренды</option>
+                    <option value="BYD">BYD</option>
+                    <option value="NIO">NIO</option>
+                    <option value="XPeng">XPeng</option>
+                    <option value="Zeekr">Zeekr</option>
+                    <option value="Hongqi">Hongqi</option>
+                    <option value="Li Auto">Li Auto</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="price-filter">Ценовой диапазон</label>
+                <select id="price-filter">
+                    <option value="">Все цены</option>
+                    <option value="0-30000">До $30,000</option>
+                    <option value="30000-50000">$30,000 - $50,000</option>
+                    <option value="50000-70000">$50,000 - $70,000</option>
+                    <option value="70000+">Свыше $70,000</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="range-filter">Запас хода</label>
+                <select id="range-filter">
+                    <option value="">Любой</option>
+                    <option value="0-400">До 400 км</option>
+                    <option value="400-600">400 - 600 км</option>
+                    <option value="600+">Свыше 600 км</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="year-filter">Год выпуска</label>
+                <select id="year-filter">
+                    <option value="">Любой год</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cars Grid -->
+    <section class="section">
+        <div class="section-header">
+            <h2>Список автомобилей</h2>
+            <div class="cars-count">Найдено: <span id="cars-count">0</span> автомобилей</div>
+        </div>
+        <div class="cars-grid" id="cars-grid">
+            <!-- Cars will be loaded here -->
+            <div class="card car-card">
+                <img src="https://via.placeholder.com/300x200/1E3A8A/FFFFFF?text=BYD+Seal" alt="BYD Seal" class="car-card-image">
+                <div class="car-card-content">
+                    <h3 class="car-card-title">BYD Seal</h3>
+                    <p class="text-dark-gray mb-md">BYD • 2023</p>
+                    <div class="car-card-specs">
+                        <span><i class="fas fa-battery-full"></i> 550 км</span>
+                        <span><i class="fas fa-tachometer-alt"></i> 180 км/ч</span>
+                        <span><i class="fas fa-users"></i> 5 мест</span>
+                    </div>
+                    <p class="car-card-price">от $35,000</p>
+                    <div class="car-card-actions">
+                        <button class="btn btn-primary btn-sm" onclick="showCarDetails('BYD Seal')">
+                            <i class="fas fa-info-circle"></i> Подробнее
+                        </button>
+                        <button class="btn btn-secondary btn-sm" onclick="addToFavorites('BYD Seal')">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card car-card">
+                <img src="https://via.placeholder.com/300x200/EA580C/FFFFFF?text=NIO+ET7" alt="NIO ET7" class="car-card-image">
+                <div class="car-card-content">
+                    <h3 class="car-card-title">NIO ET7</h3>
+                    <p class="text-dark-gray mb-md">NIO • 2024</p>
+                    <div class="car-card-specs">
+                        <span><i class="fas fa-battery-full"></i> 600 км</span>
+                        <span><i class="fas fa-tachometer-alt"></i> 200 км/ч</span>
+                        <span><i class="fas fa-users"></i> 5 мест</span>
+                    </div>
+                    <p class="car-card-price">от $50,000</p>
+                    <div class="car-card-actions">
+                        <button class="btn btn-primary btn-sm" onclick="showCarDetails('NIO ET7')">
+                            <i class="fas fa-info-circle"></i> Подробнее
+                        </button>
+                        <button class="btn btn-secondary btn-sm" onclick="addToFavorites('NIO ET7')">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card car-card">
+                <img src="https://via.placeholder.com/300x200/10B981/FFFFFF?text=XPeng+P7" alt="XPeng P7" class="car-card-image">
+                <div class="car-card-content">
+                    <h3 class="car-card-title">XPeng P7</h3>
+                    <p class="text-dark-gray mb-md">XPeng • 2023</p>
+                    <div class="car-card-specs">
+                        <span><i class="fas fa-battery-full"></i> 580 км</span>
+                        <span><i class="fas fa-tachometer-alt"></i> 190 км/ч</span>
+                        <span><i class="fas fa-users"></i> 5 мест</span>
+                    </div>
+                    <p class="car-card-price">от $40,000</p>
+                    <div class="car-card-actions">
+                        <button class="btn btn-primary btn-sm" onclick="showCarDetails('XPeng P7')">
+                            <i class="fas fa-info-circle"></i> Подробнее
+                        </button>
+                        <button class="btn btn-secondary btn-sm" onclick="addToFavorites('XPeng P7')">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card car-card">
+                <img src="https://via.placeholder.com/300x200/8B5CF6/FFFFFF?text=Zeekr+001" alt="Zeekr 001" class="car-card-image">
+                <div class="car-card-content">
+                    <h3 class="car-card-title">Zeekr 001</h3>
+                    <p class="text-dark-gray mb-md">Zeekr • 2023</p>
+                    <div class="car-card-specs">
+                        <span><i class="fas fa-battery-full"></i> 540 км</span>
+                        <span><i class="fas fa-tachometer-alt"></i> 200 км/ч</span>
+                        <span><i class="fas fa-users"></i> 5 мест</span>
+                    </div>
+                    <p class="car-card-price">от $38,000</p>
+                    <div class="car-card-actions">
+                        <button class="btn btn-primary btn-sm" onclick="showCarDetails('Zeekr 001')">
+                            <i class="fas fa-info-circle"></i> Подробнее
+                        </button>
+                        <button class="btn btn-secondary btn-sm" onclick="addToFavorites('Zeekr 001')">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card car-card">
+                <img src="https://via.placeholder.com/300x200/F59E0B/FFFFFF?text=Hongqi+E-HS9" alt="Hongqi E-HS9" class="car-card-image">
+                <div class="car-card-content">
+                    <h3 class="car-card-title">Hongqi E-HS9</h3>
+                    <p class="text-dark-gray mb-md">Hongqi • 2024</p>
+                    <div class="car-card-specs">
+                        <span><i class="fas fa-battery-full"></i> 520 км</span>
+                        <span><i class="fas fa-tachometer-alt"></i> 180 км/ч</span>
+                        <span><i class="fas fa-users"></i> 7 мест</span>
+                    </div>
+                    <p class="car-card-price">от $60,000</p>
+                    <div class="car-card-actions">
+                        <button class="btn btn-primary btn-sm" onclick="showCarDetails('Hongqi E-HS9')">
+                            <i class="fas fa-info-circle"></i> Подробнее
+                        </button>
+                        <button class="btn btn-secondary btn-sm" onclick="addToFavorites('Hongqi E-HS9')">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card car-card">
+                <img src="https://via.placeholder.com/300x200/06B6D4/FFFFFF?text=Li+Auto+L9" alt="Li Auto L9" class="car-card-image">
+                <div class="car-card-content">
+                    <h3 class="car-card-title">Li Auto L9</h3>
+                    <p class="text-dark-gray mb-md">Li Auto • 2023</p>
+                    <div class="car-card-specs">
+                        <span><i class="fas fa-battery-full"></i> 450 км</span>
+                        <span><i class="fas fa-tachometer-alt"></i> 180 км/ч</span>
+                        <span><i class="fas fa-users"></i> 6 мест</span>
+                    </div>
+                    <p class="car-card-price">от $55,000</p>
+                    <div class="car-card-actions">
+                        <button class="btn btn-primary btn-sm" onclick="showCarDetails('Li Auto L9')">
+                            <i class="fas fa-info-circle"></i> Подробнее
+                        </button>
+                        <button class="btn btn-secondary btn-sm" onclick="addToFavorites('Li Auto L9')">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Car Details Modal -->
+    <div id="car-details-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-car-title">Название автомобиля</h2>
+                <span class="close-modal" onclick="closeCarDetails()">&times;</span>
+            </div>
+            <div class="modal-body" id="modal-car-body">
+                <!-- Details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>О проекте</h3>
+                <p>Сайт посвящён китайским электромобилям, их особенностям, запчастям и методам решения программных вопросов.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Быстрые ссылки</h3>
+                <ul>
+                    <li><a href="/site/index.html">Главная</a></li>
+                    <li><a href="/site/pages/cars.html">Автомобили</a></li>
+                    <li><a href="/site/pages/tasks.html">Задачи</a></li>
+                    <li><a href="/site/pages/about.html">О проекте</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Контакты</h3>
+                <p><i class="fas fa-envelope"></i> info@ev-china.ru</p>
+                <p><i class="fas fa-phone"></i> +7 (123) 456-78-90</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 | Китайские Электромобили. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <!-- AI Assistant Modal -->
+    <div id="ai-assistant-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-robot"></i> ИИ-Ассистент</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div id="chat-container" class="chat-container"></div>
+            <div class="chat-input">
+                <input type="text" id="user-input" placeholder="Задайте вопрос о китайских электромобилях...">
+                <button id="send-btn" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="/site/assets/js/app.js"></script>
+    <script src="/site/assets/js/ai-assistant.js"></script>
+    <script>
+        // Car details data (will be moved to JSON later)
+        const carDetails = {
+            'BYD Seal': {
+                brand: 'BYD',
+                year: 2023,
+                range: '550 км',
+                speed: '180 км/ч',
+                seats: '5 мест',
+                battery: 'Blade Battery (60 кВт·ч)',
+                motor: 'Электродвигатель 150 кВт',
+                price: '$35,000 - $45,000',
+                features: [
+                    'Технология Blade Battery для повышенной безопасности',
+                    'Задний привод',
+                    'Быстрая зарядка (30 минут до 80%)',
+                    'Современная система мультимедиа',
+                    'Автономный круиз-контроль 2 уровня'
+                ],
+                parts: [
+                    'АКБ Blade Battery',
+                    'Электродвигатель',
+                    'Контроллер заряда',
+                    'Инвертор',
+                    'Система охлаждения батареи'
+                ],
+                image: 'https://via.placeholder.com/600x400/1E3A8A/FFFFFF?text=BYD+Seal'
+            },
+            'NIO ET7': {
+                brand: 'NIO',
+                year: 2024,
+                range: '600 км',
+                speed: '200 км/ч',
+                seats: '5 мест',
+                battery: 'АКБ 75 кВт·ч',
+                motor: 'Двойной электродвигатель (300 кВт)',
+                price: '$50,000 - $65,000',
+                features: [
+                    'Система замены батарей NIO Power Swap',
+                    'Полный привод',
+                    'Автопилот NIO Pilot',
+                    'Панорамная крыша',
+                    'Премиальная отделка салона'
+                ],
+                parts: [
+                    'АКБ NIO',
+                    'Двойной электродвигатель',
+                    'Система NIO Power Swap',
+                    'Камеры и сенсоры для автопилота',
+                    'Аудиосистема premium-класса'
+                ],
+                image: 'https://via.placeholder.com/600x400/EA580C/FFFFFF?text=NIO+ET7'
+            },
+            'XPeng P7': {
+                brand: 'XPeng',
+                year: 2023,
+                range: '580 км',
+                speed: '190 км/ч',
+                seats: '5 мест',
+                battery: 'АКБ 67 кВт·ч',
+                motor: 'Электродвигатель 145 кВт',
+                price: '$40,000 - $50,000',
+                features: [
+                    'Система автопилота XNGP',
+                    'Голосовой помощник',
+                    'Большой сенсорный экран',
+                    'Адаптивный круиз-контроль',
+                    'Система распознавания голоса'
+                ],
+                parts: [
+                    'АКБ XPeng',
+                    'Электродвигатель',
+                    'Камеры и лидары',
+                    'Процессор NVIDIA DRIVE',
+                    'Аудиосистема'
+                ],
+                image: 'https://via.placeholder.com/600x400/10B981/FFFFFF?text=XPeng+P7'
+            }
+        };
+
+        function showCarDetails(carName) {
+            const car = carDetails[carName];
+            if (!car) return;
+
+            const modal = document.getElementById('car-details-modal');
+            const modalTitle = document.getElementById('modal-car-title');
+            const modalBody = document.getElementById('modal-car-body');
+
+            modalTitle.textContent = `${car.brand} ${carName}`;
+            
+            modalBody.innerHTML = `
+                <img src="${car.image}" alt="${carName}" style="width: 100%; height: 300px; object-fit: cover; border-radius: var(--radius-md); margin-bottom: var(--space-lg);">
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-lg); margin-bottom: var(--space-lg);">
+                    <div>
+                        <h4><i class="fas fa-calendar"></i> Год выпуска</h4>
+                        <p>${car.year}</p>
+                    </div>
+                    <div>
+                        <h4><i class="fas fa-battery-full"></i> Запас хода</h4>
+                        <p>${car.range}</p>
+                    </div>
+                    <div>
+                        <h4><i class="fas fa-tachometer-alt"></i> Макс. скорость</h4>
+                        <p>${car.speed}</p>
+                    </div>
+                    <div>
+                        <h4><i class="fas fa-users"></i> Количество мест</h4>
+                        <p>${car.seats}</p>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: var(--space-lg);">
+                    <h4><i class="fas fa-dollar-sign"></i> Цена</h4>
+                    <p style="font-size: 1.25rem; font-weight: 600; color: var(--secondary-color);">${car.price}</p>
+                </div>
+
+                <div style="margin-bottom: var(--space-lg);">
+                    <h4><i class="fas fa-cog"></i> Технические характеристики</h4>
+                    <p><strong>АКБ:</strong> ${car.battery}</p>
+                    <p><strong>Двигатель:</strong> ${car.motor}</p>
+                </div>
+
+                <div style="margin-bottom: var(--space-lg);">
+                    <h4><i class="fas fa-star"></i> Особенности</h4>
+                    <ul style="list-style: none; padding-left: 0;">
+                        ${car.features.map(feature => `<li style="margin-bottom: var(--space-xs); padding-left: var(--space-md); position: relative;">• ${feature}</li>`).join('')}
+                    </ul>
+                </div>
+
+                <div style="margin-bottom: var(--space-lg);">
+                    <h4><i class="fas fa-tools"></i> Применяемые запчасти</h4>
+                    <ul style="list-style: none; padding-left: 0;">
+                        ${car.parts.map(part => `<li style="margin-bottom: var(--space-xs); padding-left: var(--space-md); position: relative;">• ${part}</li>`).join('')}
+                    </ul>
+                </div>
+            `;
+
+            modal.classList.add('active');
+        }
+
+        function closeCarDetails() {
+            document.getElementById('car-details-modal').classList.remove('active');
+        }
+
+        function addToFavorites(carName) {
+            alert(`Автомобиль "${carName}" добавлен в избранное! (Функционал будет реализован позже)`);
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('car-details-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeCarDetails();
+            }
+        });
+
+        // Filter functionality
+        document.getElementById('reset-filters').addEventListener('click', function() {
+            document.querySelectorAll('.filter-group select').forEach(select => {
+                select.value = '';
+            });
+            filterCars();
+        });
+
+        document.querySelectorAll('.filter-group select').forEach(select => {
+            select.addEventListener('change', filterCars);
+        });
+
+        function filterCars() {
+            const brand = document.getElementById('brand-filter').value;
+            const price = document.getElementById('price-filter').value;
+            const range = document.getElementById('range-filter').value;
+            const year = document.getElementById('year-filter').value;
+
+            const cars = document.querySelectorAll('.car-card');
+            let visibleCount = 0;
+
+            cars.forEach(car => {
+                const carBrand = car.querySelector('.car-card-title').textContent.split(' ')[0];
+                const carPriceText = car.querySelector('.car-card-price').textContent;
+                const carPrice = parseInt(carPriceText.replace(/[^0-9]/g, ''));
+                const carRangeText = car.querySelector('.car-card-specs span:first-child').textContent;
+                const carRange = parseInt(carRangeText.replace(/[^0-9]/g, ''));
+                const carYearText = car.querySelector('p.text-dark-gray').textContent;
+                const carYear = parseInt(carYearText.split('•')[1].trim());
+
+                let matches = true;
+
+                if (brand && carBrand !== brand) matches = false;
+                if (price) {
+                    const [min, max] = price.split('-');
+                    if (price === '70000+') {
+                        if (carPrice < 70000) matches = false;
+                    } else {
+                        if (carPrice < parseInt(min) || (max && carPrice > parseInt(max))) matches = false;
+                    }
+                }
+                if (range) {
+                    const [min, max] = range.split('-');
+                    if (range === '600+') {
+                        if (carRange < 600) matches = false;
+                    } else {
+                        if (carRange < parseInt(min) || (max && carRange > parseInt(max))) matches = false;
+                    }
+                }
+                if (year && carYear !== parseInt(year)) matches = false;
+
+                car.style.display = matches ? 'block' : 'none';
+                if (matches) visibleCount++;
+            });
+
+            document.getElementById('cars-count').textContent = visibleCount;
+        }
+
+        // Initialize
+        filterCars();
+    </script>
+</body>
+</html>
